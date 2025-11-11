@@ -1,4 +1,3 @@
-echo "# prisma_backend_docker_neon" >> README.md
 git init
 git add .
 git commit -m "first commit"

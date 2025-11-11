@@ -1,5 +1,8 @@
     import express  from 'express';
     import dotenv from 'dotenv';
+import { PrismaClient } from "../generated/prisma/client.ts"
+
+import postRoute from './routes/postRoute.ts'
 
     dotenv.config(); // Load environment variables
 
@@ -7,12 +10,10 @@
     const port = process.env.PORT || 3000;
 
 
-    // app.use(cors())
-    app.get('/', (req, resp) => {
-      resp.send('well finecccc');
-    // resp.status(200).json('well fine')
-    });
 
+    export const prisma = new PrismaClient()
+
+app.use('/post', postRoute)
     
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);

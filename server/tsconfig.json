@@ -4,8 +4,10 @@
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
-    "rootDir": "./src",
-    "outDir": "./dist",
+    // "rootDir": "./src",  //THIS TWO PART ENABLE WHEN YOUS DOCKER
+    // "outDir": "./dist",
+    "allowImportingTsExtensions":true,
+    "noEmit": true,
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
