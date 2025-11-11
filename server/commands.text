@@ -1,0 +1,46 @@
+
+
+//////docker commands ad setup//
+
+
+//////Go to tsconfg.json set \\\\
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+
+//go to package.json set \\\\
+
+"scripts": {
+  "build": "tsc",
+  "start": "node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+=>npm run build
+=>docker compose build
+=>docker compose up
+
+
+///FOR PRISMA RUN NOW IS /////////////
+
+=>docker compose exec app npx prisma migrate dev --name init
+=>docker compose exec app npx prisma studio
+
+ |||||||||||||||||||||||||NB||||||||||||||||||||||||||||||
+  the batabase_url in .env must be same as in .yaml file 
+
+///Bellow commands
+=>docker ps → list running containers
+
+=>docker ps -a → list all containers
+
+=>docker image ls → list images
+
+=>docker run ... → run containers
+
+=>docker logs <container> → check logs
+
+=>docker exec -it <container> bash → open shell in container
+
+
+===>>>>>>>BY DOCKER EASY FOR DEPLOYMENT//////
