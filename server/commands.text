@@ -5,7 +5,7 @@
 
 git init
 git add .
-git commit -m " add add image logics"
+git commit -m "add Image URL accessable in Browser"
 git branch -M main
 git remote add origin https://github.com/afidhu/prisma_backend_docker_neon.git
 git push -u origin main

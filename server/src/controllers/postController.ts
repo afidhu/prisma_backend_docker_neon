@@ -2,11 +2,16 @@ import type {Request, Response } from "express";
 import { prisma } from "../index.ts";
 import multer from "multer";
 
+const HOST = "https://prisma-backend-docker-neon.onrender.com";
 export const getAllpost = async(req:Request,resp:Response)=>{
 
     const posts = await prisma.post.findMany()
 
-    return resp.status(200).json(posts)
+        
+    ////This Code is to map the image URL to be accessible via HTTP
+    const mappedPosts = posts.map(posts => ({...posts,imageUrl: `${HOST}/uploads/${posts.imageUrl}` }));
+
+    return resp.status(200).json(mappedPosts)
 
 }
 
