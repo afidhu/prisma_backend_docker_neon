@@ -76,6 +76,7 @@ export const PostScalarFieldEnum = {
   updatedAt: 'updatedAt',
   title: 'title',
   content: 'content',
+  imageUrl: 'imageUrl',
   published: 'published',
   authorId: 'authorId'
 } as const

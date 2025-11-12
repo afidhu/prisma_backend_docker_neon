@@ -1,4 +1,14 @@
+////////////////////GIT//////////////
 
+
+
+
+git init
+git add .
+git commit -m " add add image logics"
+git branch -M main
+git remote add origin https://github.com/afidhu/prisma_backend_docker_neon.git
+git push -u origin main
 
 //////docker commands ad setup//
 
