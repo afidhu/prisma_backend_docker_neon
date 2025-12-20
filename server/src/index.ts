@@ -3,7 +3,8 @@
 import { PrismaClient } from "../generated/prisma/client.ts"
 import path from "path";
 import postRoute from './routes/postRoute.ts'
-import type { VercelRequest, VercelResponse } from '@vercel/node';
+import cors from 'cors';
+// import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { fileURLToPath } from 'url';
 // import path from 'path/win32';
 
@@ -16,18 +17,19 @@ import { fileURLToPath } from 'url';
 
 
 
-export default function handler(req: VercelRequest,res: VercelResponse) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+// export default function handler(req: VercelRequest,res: VercelResponse) {
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+//   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
+//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
+//   if (req.method === 'OPTIONS') {
+//     return res.status(200).end();
+//   }
 
-  res.json({ message: 'API working' });
-}
+//   res.json({ message: 'API working' });
+// }
 
+app.use(cors());
 app.use('/post', postRoute)
 
     const port = process.env.PORT || 3000;
