@@ -3,12 +3,33 @@
 import { PrismaClient } from "../generated/prisma/client.ts"
 import path from "path";
 import postRoute from './routes/postRoute.ts'
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { fileURLToPath } from 'url';
 // import path from 'path/win32';
 
     dotenv.config(); // Load environment variables
+    
 
     const app = express();
+// api/index.ts
+
+
+
+
+export default function handler(req: VercelRequest,res: VercelResponse) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
+  res.json({ message: 'API working' });
+}
+
+
+
     const port = process.env.PORT || 3000;
 
     export const prisma = new PrismaClient()
