@@ -4,6 +4,7 @@ import { PrismaClient } from "../generated/prisma/client.ts"
 import path from "path";
 import postRoute from './routes/postRoute.ts'
 import serverless from 'serverless-http';
+import type {Request, Response } from "express";
 import cors from 'cors';
 import { fileURLToPath } from 'url';
 // import path from 'path/win32';
@@ -20,7 +21,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
+export default function handler(req: Request, res: Response) {
+    res.setHeader('Access-Control-Allow-Origin','*');
+    if(req.method==='OPTIONS') return res.status(200).end();
+    res.json({message:'API working'})
+}
 
 // Serve static files from the "uploads" directory Also 
 // make sure to create the uploads folder in the root directory For Accessing images in the browser
