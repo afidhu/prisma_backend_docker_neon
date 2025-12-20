@@ -28,7 +28,7 @@ export default function handler(req: VercelRequest,res: VercelResponse) {
   res.json({ message: 'API working' });
 }
 
-
+app.use('/post', postRoute)
 
     const port = process.env.PORT || 3000;
 
