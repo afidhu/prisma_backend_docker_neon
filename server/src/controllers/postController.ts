@@ -7,6 +7,7 @@ export const getAllpost = async(req:Request,resp:Response)=>{
 
     const posts = await prisma.post.findMany()
 
+
         
     ////This Code is to map the image URL to be accessible via HTTP
     const mappedPosts = posts.map(posts => ({...posts,imageUrl: `${HOST}/uploads/${posts.imageUrl}` }));
@@ -32,9 +33,11 @@ export const addPostData = async(req:Request ,resp:Response)=>{
             authorId:Number(req.body.authorId)
         }
     })
+    console.log(posts);
     return resp.status(201).json(posts)
 
     } catch (error:any) {
+        console.log(error.message)
         return resp.status(500).json({ message: "Internal server error", error: error.message });
         
     }
