@@ -5,7 +5,7 @@
   "compilerOptions": {
     // File Layout
     // "rootDir": "./src",  //THIS TWO PART ENABLE WHEN YOUS DOCKER
-    // "outDir": "./dist",
+    "outDir": "./dist",
     "allowImportingTsExtensions":true,
     "noEmit": true,
 
