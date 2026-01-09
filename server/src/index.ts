@@ -34,6 +34,9 @@ app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 app.use('/post', postRoute)
 
+app.get('/', (req: Request, res: Response) => {
+  res.send('https://prisma-backend-docker-neon-6vez.vercel.app/post');
+});
     
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
