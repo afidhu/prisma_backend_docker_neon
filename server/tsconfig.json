@@ -45,5 +45,6 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
   },
-    "include": ["src/**/*", "src/middleware", "api"]
+   "include": ["src", "generated"]
+
 }
