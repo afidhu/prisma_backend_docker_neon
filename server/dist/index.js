@@ -16,7 +16,14 @@ const url_1 = require("url");
 dotenv_1.default.config(); // Load environment variables
 const app = (0, express_1.default)();
 const port = process.env.PORT || 3000;
-exports.prisma = new client_ts_1.PrismaClient();
+let prisma;
+if (!global.prisma) {
+    exports.prisma = prisma = new client_ts_1.PrismaClient();
+    global.prisma = prisma;
+}
+else {
+    exports.prisma = prisma = global.prisma;
+}
 // Middlewares
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
