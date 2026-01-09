@@ -14,7 +14,20 @@ import { fileURLToPath } from 'url';
     const app = express();
     const port = process.env.PORT || 3000;
 
-    export const prisma = new PrismaClient()
+
+   
+
+let prisma: PrismaClient;
+
+if (!(global as any).prisma) {
+  prisma = new PrismaClient();
+  (global as any).prisma = prisma;
+} else {
+  prisma = (global as any).prisma;
+}
+
+export { prisma };
+
 
     // Middlewares
 app.use(cors());
