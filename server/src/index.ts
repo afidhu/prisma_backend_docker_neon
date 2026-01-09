@@ -38,8 +38,9 @@ app.get('/', (req: Request, res: Response) => {
   res.send('https://prisma-backend-docker-neon-6vez.vercel.app/post');
 });
     
-app.listen(port, () => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`[server]: Server is running at http://localhost:${port}`);
+// });
 
+export default serverless(app);
 // export default serverless(app);
