@@ -39,4 +39,8 @@ app.use('/post', postRoute)
 //   console.log(`[server]: Server is running at http://localhost:${port}`);
 // });
 
+app.get("/", (req, res) => {
+  res.send("API is running");
+});
+
 export default serverless(app)
