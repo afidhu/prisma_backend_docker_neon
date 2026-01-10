@@ -35,8 +35,8 @@ app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 app.use('/post', postRoute)
 
     
-app.listen(port, () => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`[server]: Server is running at http://localhost:${port}`);
+// });
 
 export default serverless(app)
