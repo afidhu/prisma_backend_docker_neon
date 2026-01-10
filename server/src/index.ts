@@ -14,20 +14,7 @@ import { fileURLToPath } from 'url';
     const app = express();
     const port = process.env.PORT || 3000;
 
-
-   
-
-let prisma: PrismaClient;
-
-if (!(global as any).prisma) {
-  prisma = new PrismaClient();
-  (global as any).prisma = prisma;
-} else {
-  prisma = (global as any).prisma;
-}
-
-export { prisma };
-
+    export const prisma = new PrismaClient()
 
     // Middlewares
 app.use(cors());
@@ -47,13 +34,9 @@ app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 app.use('/post', postRoute)
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('https://prisma-backend-docker-neon-6vez.vercel.app/post');
-});
     
-// app.listen(port, () => {
-//   console.log(`[server]: Server is running at http://localhost:${port}`);
-// });
+app.listen(port, () => {
+  console.log(`[server]: Server is running at http://localhost:${port}`);
+});
 
-export default app;
-// export default serverless(app);
+// export default serverless(app)
