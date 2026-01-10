@@ -22,7 +22,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-
 // Serve static files from the "uploads" directory Also 
 // make sure to create the uploads folder in the root directory For Accessing images in the browser
 const __filename = fileURLToPath(import.meta.url);
